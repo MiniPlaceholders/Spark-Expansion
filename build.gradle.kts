@@ -4,14 +4,15 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":example-expansion-velocity"))
-    implementation(project(":example-expansion-paper"))
+    implementation(project(":spark-expansion-velocity"))
+    implementation(project(":spark-expansion-paper"))
 }
 
 subprojects {
     apply<JavaPlugin>()
     repositories {
         maven("https://papermc.io/repo/repository/maven-public/")
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
     }
     java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
     tasks {

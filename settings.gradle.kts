@@ -1,7 +1,6 @@
-rootProject.name = "Example-Expansion"
+rootProject.name = "Spark-Expansion"
 
-arrayOf("paper", "velocity").forEach {
-    include("example-expansion-$it")
-
-    project(":example-expansion-$it").projectDir = file(it)
+arrayOf("paper", "velocity", "common").forEach {
+    include("spark-expansion-$it")
+    project(":spark-expansion-$it").projectDir = file(it)
 }
