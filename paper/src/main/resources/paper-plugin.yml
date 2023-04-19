@@ -1,0 +1,11 @@
+name: Spark-Expansion
+version: '${version}'
+author: 4drian3d
+main: io.github.miniplaceholders.expansion.spark.paper.PaperPlugin
+api-version: '1.19'
+folia-supported: true
+dependencies:
+  - name: MiniPlaceholders
+    required: true
+  - name: spark
+    required: true

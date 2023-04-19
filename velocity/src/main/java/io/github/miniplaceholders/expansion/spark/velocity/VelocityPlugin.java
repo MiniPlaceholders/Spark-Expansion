@@ -9,8 +9,8 @@ import io.github.miniplaceholders.expansion.spark.common.CommonExpansion;
 import org.slf4j.Logger;
 
 @Plugin(
-    name = "Example-Expansion",
-    id = "example-expansion",
+    name = "Spark-Expansion",
+    id = "spark-expansion",
     version = Constants.VERSION,
     authors = {"4drian3d"},
     dependencies = {
@@ -28,7 +28,7 @@ public final class VelocityPlugin {
 
     @Subscribe
     public void onProxyInitialize(ProxyInitializeEvent event) {
-        logger.info("Starting Example Expansion for Velocity");
+        logger.info("Starting Spark Expansion for Velocity");
         CommonExpansion.register();
     }
 }
