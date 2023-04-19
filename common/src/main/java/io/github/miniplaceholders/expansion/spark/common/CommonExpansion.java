@@ -9,7 +9,7 @@ public final class CommonExpansion {
         final Spark spark = SparkProvider.get();
         Expansion.builder("spark")
                 .globalPlaceholder("tps", new TPSPlaceholder(spark))
-                .globalPlaceholder("mspt", new MSPTPlaceholder(spark))
+                .globalPlaceholder("tickduration", new MSPTPlaceholder(spark))
                 .globalPlaceholder("cpu_system", new CPUSystemPlaceholder(spark))
                 .globalPlaceholder("cpu_process", new CPUProcessPlaceholder(spark))
                 .build()

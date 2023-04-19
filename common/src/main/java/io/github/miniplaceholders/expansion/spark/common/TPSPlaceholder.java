@@ -28,7 +28,12 @@ final class TPSPlaceholder implements SparkPlaceholder {
         if (!argumentQueue.hasNext()) {
             final double[] tps = statistics.poll();
             final Component component = MiniMessage.miniMessage().deserialize(
-                    "<green><tps5s> <gray>|</gray> <tps10s> <gray>|</gray> <tps15s> <gray>|</gray> <tps1m> <gray>|</gray> <tps5m> <gray>|</gray> <tps15m>",
+                    "<tps5s> <gray>|</gray> "
+                            + "<tps10s> <gray>|</gray> "
+                            + "<tps15s> <gray>|</gray> "
+                            + "<tps1m> <gray>|</gray> "
+                            + "<tps5m> <gray>|</gray> "
+                            + "<tps15m>",
                     Placeholder.component("tps5s", formatTps(tps[0])),
                     Placeholder.component("tps10s", formatTps(tps[1])),
                     Placeholder.component("tps15s", formatTps(tps[2])),
