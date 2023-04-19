@@ -1,7 +1,3 @@
-plugins {
-    alias(libs.plugins.pluginyml)
-}
-
 dependencies {
     compileOnly(libs.paper.api)
     compileOnly(libs.miniplaceholders)
