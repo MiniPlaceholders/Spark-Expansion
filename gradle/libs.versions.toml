@@ -18,8 +18,8 @@ velocity-api = { group = "com.velocitypowered", name = "velocity-api", version.r
 paper-api = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
 miniplaceholders = { group = "io.github.miniplaceholders", name = "miniplaceholders-api", version.ref = "miniplaceholders" }
 spark = { group = "me.lucko", name = "spark-api", version.ref = "spark" }
-adventure-api = { group = "net.kyori", name = "adventure-api", version = "4.13.1" }
-adventure-minimessage = { group = "net.kyori", name = "adventure-text-minimessage", version = "4.13.1" }
+adventure-api = { group = "net.kyori", name = "adventure-api", version = "4.14.0" }
+adventure-minimessage = { group = "net.kyori", name = "adventure-text-minimessage", version = "4.14.0" }
 
 [plugins]
 
