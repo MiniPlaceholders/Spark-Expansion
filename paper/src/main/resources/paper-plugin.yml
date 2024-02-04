@@ -1,11 +1,14 @@
-name: Spark-Expansion
+name: MiniPlaceholders-Spark-Expansion
 version: '${version}'
 author: 4drian3d
 main: io.github.miniplaceholders.expansion.spark.paper.PaperPlugin
-api-version: '1.19'
+api-version: '1.20'
 folia-supported: true
 dependencies:
-  - name: MiniPlaceholders
-    required: true
-  - name: spark
-    required: true
+  server:
+    MiniPlaceholders:
+      required: true
+      load: BEFORE
+    spark:
+      required: true
+      load: BEFORE

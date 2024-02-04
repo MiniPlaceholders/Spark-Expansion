@@ -2,11 +2,9 @@ package io.github.miniplaceholders.expansion.spark.common;
 
 import io.github.miniplaceholders.api.Expansion;
 import me.lucko.spark.api.Spark;
-import me.lucko.spark.api.SparkProvider;
 
 public final class CommonExpansion {
-    public static void register() {
-        final Spark spark = SparkProvider.get();
+    public static void register(Spark spark) {
         Expansion.builder("spark")
                 .globalPlaceholder("tps", new TPSPlaceholder(spark))
                 .globalPlaceholder("tickduration", new MSPTPlaceholder(spark))

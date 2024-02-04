@@ -1,5 +1,6 @@
 dependencies {
     compileOnly(libs.paper.api)
+    compileOnly(libs.spark)
     compileOnly(libs.miniplaceholders)
     implementation(project(":spark-expansion-common"))
 }

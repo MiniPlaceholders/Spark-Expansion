@@ -6,6 +6,7 @@ import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Dependency;
 import com.velocitypowered.api.plugin.Plugin;
 import io.github.miniplaceholders.expansion.spark.common.CommonExpansion;
+import me.lucko.spark.api.SparkProvider;
 import org.slf4j.Logger;
 
 @Plugin(
@@ -22,13 +23,13 @@ public final class VelocityPlugin {
     private final Logger logger;
 
     @Inject
-    public VelocityPlugin(Logger logger) {
+    public VelocityPlugin(final Logger logger) {
         this.logger = logger;
     }
 
     @Subscribe
-    public void onProxyInitialize(ProxyInitializeEvent event) {
+    public void onProxyInitialize(final ProxyInitializeEvent event) {
         logger.info("Starting Spark Expansion for Velocity");
-        CommonExpansion.register();
+        CommonExpansion.register(SparkProvider.get());
     }
 }
