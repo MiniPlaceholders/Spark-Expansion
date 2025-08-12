@@ -1,5 +1,6 @@
 package io.github.miniplaceholders.expansion.spark.common;
 
+import io.github.miniplaceholders.api.resolver.GlobalTagResolver;
 import me.lucko.spark.api.Spark;
 import me.lucko.spark.api.statistic.StatisticWindow;
 import me.lucko.spark.api.statistic.types.DoubleStatistic;
@@ -10,13 +11,9 @@ import net.kyori.adventure.text.minimessage.tag.Tag;
 import net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 
-final class CPUProcessPlaceholder implements SparkPlaceholder {
-    private final Spark spark;
-    CPUProcessPlaceholder(Spark spark) {
-        this.spark = spark;
-    }
+record CPUProcessPlaceholder(Spark spark) implements GlobalTagResolver {
     @Override
-    public Tag apply(ArgumentQueue argumentQueue, Context context) {
+    public Tag tag(ArgumentQueue argumentQueue, Context context) {
         final DoubleStatistic<StatisticWindow.CpuUsage> cpuUsage = spark.cpuProcess();
         if (!argumentQueue.hasNext()) {
             final double[] usage = cpuUsage.poll();

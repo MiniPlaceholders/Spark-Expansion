@@ -1,18 +1,11 @@
 # Spark-Expansion
 Spark Expansion for MiniPlaceholders
 
-## Supported Platforms
-
-- Paper
-- Velocity
-- Fabric (not yet)
-- Krypton (not yet)
-
 ## Placeholders
 
 ### TPS
 
-**Only available in Paper**
+**Only available in Backend Platforms**
 
 #### `<spark_tps>`
 
@@ -40,7 +33,7 @@ Returns a formatted representation of the average TPS in the last 15 minutes.
 
 ### Tick Duration (MSPT)
 
-**Only available in Paper**
+**Only available in Backend Platforms**
 
 #### `<spark_tickduration>`
 

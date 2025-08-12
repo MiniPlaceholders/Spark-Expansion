@@ -1,34 +1,24 @@
 plugins {
     java
-    alias(libs.plugins.shadow)
 }
 
 dependencies {
-    implementation(project(":spark-expansion-velocity"))
-    implementation(project(":spark-expansion-paper"))
+    compileOnly(libs.miniplaceholders)
+    compileOnly(libs.spark)
+    compileOnly(libs.adventure.api)
+    compileOnly(libs.adventure.minimessage)
 }
 
-subprojects {
-    apply<JavaPlugin>()
-    repositories {
-        maven("https://papermc.io/repo/repository/maven-public/")
-        maven("https://oss.sonatype.org/content/repositories/snapshots")
-    }
-    java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-    tasks {
-        compileJava {
-            options.encoding = Charsets.UTF_8.name()
-            options.release.set(17)
-        }
-    }
+repositories {
+    mavenCentral()
+    maven("https://repo.lucko.me/")
+    maven("https://central.sonatype.com/repository/maven-snapshots/")
 }
 
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 tasks {
-    shadowJar {
-        archiveFileName.set("${rootProject.name}-${project.version}.jar")
-        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    }
-    build {
-        dependsOn(shadowJar)
+    compileJava {
+        options.encoding = Charsets.UTF_8.name()
+        options.release.set(21)
     }
 }

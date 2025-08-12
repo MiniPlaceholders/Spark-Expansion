@@ -1,5 +1,6 @@
 package io.github.miniplaceholders.expansion.spark.common;
 
+import io.github.miniplaceholders.api.resolver.GlobalTagResolver;
 import me.lucko.spark.api.Spark;
 import me.lucko.spark.api.statistic.StatisticWindow;
 import me.lucko.spark.api.statistic.types.DoubleStatistic;
@@ -13,14 +14,10 @@ import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 
 import static net.kyori.adventure.text.format.NamedTextColor.*;
 
-final class TPSPlaceholder implements SparkPlaceholder {
-    private final Spark spark;
-    TPSPlaceholder(Spark spark) {
-        this.spark = spark;
-    }
+record TPSPlaceholder(Spark spark) implements GlobalTagResolver {
 
     @Override
-    public Tag apply(ArgumentQueue argumentQueue, Context context) {
+    public Tag tag(ArgumentQueue argumentQueue, Context context) {
         final DoubleStatistic<StatisticWindow.TicksPerSecond> statistics = spark.tps();
         if (statistics == null) {
             return null;

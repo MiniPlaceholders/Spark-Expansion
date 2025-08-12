@@ -1,5 +1,6 @@
 package io.github.miniplaceholders.expansion.spark.common;
 
+import io.github.miniplaceholders.api.resolver.GlobalTagResolver;
 import me.lucko.spark.api.Spark;
 import me.lucko.spark.api.statistic.StatisticWindow;
 import me.lucko.spark.api.statistic.misc.DoubleAverageInfo;
@@ -14,13 +15,9 @@ import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 
 import static net.kyori.adventure.text.format.NamedTextColor.*;
 
-final class MSPTPlaceholder implements SparkPlaceholder {
-    private final Spark spark;
-    MSPTPlaceholder(Spark spark) {
-        this.spark = spark;
-    }
+record MSPTPlaceholder(Spark spark) implements GlobalTagResolver {
     @Override
-    public Tag apply(ArgumentQueue argumentQueue, Context context) {
+    public Tag tag(ArgumentQueue argumentQueue, Context context) {
         final GenericStatistic<DoubleAverageInfo, StatisticWindow.MillisPerTick> stats = spark.mspt();
         if (stats == null) {
             return null;
@@ -55,10 +52,10 @@ final class MSPTPlaceholder implements SparkPlaceholder {
     private Tag msptTag(ArgumentQueue queue, DoubleAverageInfo averageInfo, Context context, String id) {
         if (!queue.hasNext()) {
             final Component component = MiniMessage.miniMessage().deserialize(
-                    "<green><mspt"+id+"_max> <gray>|</gray> <mspt"+id+"_min> <gray>|</gray> <mspt"+id+"_av>",
-                    Placeholder.component("mspt"+id+"_max", formatMSPT(averageInfo.max())),
-                    Placeholder.component("mspt"+id+"_min", formatMSPT(averageInfo.min())),
-                    Placeholder.component("mspt"+id+"_av", formatMSPT(averageInfo.max()))
+                    "<green><mspt" + id + "_max> <gray>|</gray> <mspt" + id + "_min> <gray>|</gray> <mspt" + id + "_av>",
+                    Placeholder.component("mspt" + id + "_max", formatMSPT(averageInfo.max())),
+                    Placeholder.component("mspt" + id + "_min", formatMSPT(averageInfo.min())),
+                    Placeholder.component("mspt" + id + "_av", formatMSPT(averageInfo.max()))
             );
             return Tag.selfClosingInserting(component);
         }
