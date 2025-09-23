@@ -1,4 +1,4 @@
-package io.github.miniplaceholders.expansion.spark.common;
+package io.github.miniplaceholders.expansion.spark;
 
 import io.github.miniplaceholders.api.Expansion;
 import io.github.miniplaceholders.api.provider.ExpansionProvider;

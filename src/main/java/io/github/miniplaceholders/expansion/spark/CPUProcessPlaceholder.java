@@ -1,4 +1,4 @@
-package io.github.miniplaceholders.expansion.spark.common;
+package io.github.miniplaceholders.expansion.spark;
 
 import io.github.miniplaceholders.api.resolver.GlobalTagResolver;
 import me.lucko.spark.api.Spark;
@@ -11,10 +11,10 @@ import net.kyori.adventure.text.minimessage.tag.Tag;
 import net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 
-record CPUSystemPlaceholder(Spark spark) implements GlobalTagResolver {
+record CPUProcessPlaceholder(Spark spark) implements GlobalTagResolver {
     @Override
     public Tag tag(ArgumentQueue argumentQueue, Context context) {
-        final DoubleStatistic<StatisticWindow.CpuUsage> cpuUsage = spark.cpuSystem();
+        final DoubleStatistic<StatisticWindow.CpuUsage> cpuUsage = spark.cpuProcess();
         if (!argumentQueue.hasNext()) {
             final double[] usage = cpuUsage.poll();
             final Component component = MiniMessage.miniMessage().deserialize(

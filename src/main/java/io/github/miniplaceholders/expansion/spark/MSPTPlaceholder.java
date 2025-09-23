@@ -1,4 +1,4 @@
-package io.github.miniplaceholders.expansion.spark.common;
+package io.github.miniplaceholders.expansion.spark;
 
 import io.github.miniplaceholders.api.resolver.GlobalTagResolver;
 import me.lucko.spark.api.Spark;
