@@ -12,7 +12,6 @@ dependencies {
 repositories {
     mavenCentral()
     maven("https://repo.lucko.me/")
-    maven("https://central.sonatype.com/repository/maven-snapshots/")
 }
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
